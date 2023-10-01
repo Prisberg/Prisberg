@@ -1,4 +1,4 @@
-# Hi there! 👋
+# HEY! 👋
 
 I'm a passionate 26-year-old Front-End Developer actively seeking new job opportunities in the exciting world of web development. With a solid foundation in HTML, CSS, and JavaScript, I'm all about creating captivating and user-friendly websites that leave a lasting impression.
 
