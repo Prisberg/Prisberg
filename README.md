@@ -1,4 +1,4 @@
-![HowdyGIF](https://github.com/Prisberg/Prisberg/assets/94374883/5f84739d-a707-4a0f-a4d2-78f55ac77edb)
+![FallFridayGIF](https://github.com/Prisberg/Prisberg/assets/94374883/39b1db4d-58df-4093-8c8e-733fbffd8ce5)
 
 # Welcome!
 
