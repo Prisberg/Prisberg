@@ -1,4 +1,6 @@
-# HEY! 👋
+![HowdyGIF](https://github.com/Prisberg/Prisberg/assets/94374883/5f84739d-a707-4a0f-a4d2-78f55ac77edb)
+
+# Welcome!
 
 I'm a passionate 26-year-old Front-End Developer actively seeking new job opportunities in the exciting world of web development. With a solid foundation in HTML, CSS, and JavaScript, I'm all about creative projects and solutions.
 
