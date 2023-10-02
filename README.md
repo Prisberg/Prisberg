@@ -1,6 +1,6 @@
 ![FallFridayGIF](https://github.com/Prisberg/Prisberg/assets/94374883/39b1db4d-58df-4093-8c8e-733fbffd8ce5)
 
-# Welcome!
+# Hey!
 
 I'm a passionate 26-year-old Front-End Developer actively seeking new job opportunities in the exciting world of web development. With a solid foundation in HTML, CSS, and JavaScript, I'm all about creative projects and solutions.
 
