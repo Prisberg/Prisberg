@@ -1,4 +1,4 @@
-![FallFridayGIF](https://github.com/Prisberg/Prisberg/assets/94374883/39b1db4d-58df-4093-8c8e-733fbffd8ce5)
+![GoodMorningSnoopyGIF](https://github.com/Prisberg/Prisberg/assets/94374883/5b196d24-1400-4437-a0d2-9cbbaf84c895)
 
 # Hey!
 
