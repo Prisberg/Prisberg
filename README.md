@@ -4,7 +4,7 @@
 
 I'm a passionate 26-year-old Front-End Developer actively seeking new job opportunities in the exciting world of web development. With a solid foundation in HTML, CSS, and JavaScript, I'm all about creative projects and solutions.
 
-## Here's a little more about me:
+## More about me:
 
 🔬 I’m currently working on a React Native productivity app that will serve as the base for my first C# Unity game.
 
