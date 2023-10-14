@@ -14,6 +14,6 @@ I'm a passionate 26-year-old Front-End Developer actively seeking new job opport
 
 📫 You can reach out to me through my GitHub profile or connect with me on [LinkedIn](https://www.linkedin.com/in/philip-risberg). I'm always open to networking and exploring potential opportunities.
 
-⚡ Fun fact: When I'm not coding, you might find me with my nose in a book, lifting heavy things or attending local tech meetups.
+🌄 When I'm not coding, you might find me with my nose in a book, lifting heavy things or hiking.
 
-Let's connect and create amazing web experiences together! 🚀
+Let's connect and create amazing web experiences together!
