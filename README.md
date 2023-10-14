@@ -12,7 +12,7 @@ I'm a passionate 26-year-old Front-End Developer actively seeking new job opport
 
 🤝 I’m looking to collaborate on exciting projects that challenge the boundaries of web design and user interaction. Teamwork and innovation are my driving forces.
 
-📫 You can reach out to me through my [website](prisberg.dev/contact) or connect with me on [LinkedIn](https://www.linkedin.com/in/philip-risberg). I'm always open to networking and exploring potential opportunities.
+📫 You can reach out to me through my [website](https://www.prisberg.dev/contact) or connect with me on [LinkedIn](https://www.linkedin.com/in/philip-risberg). I'm always open to networking and exploring potential opportunities.
 
 🌄 When I'm not coding, you might find me with my nose in a book, lifting heavy things or hiking.
 
