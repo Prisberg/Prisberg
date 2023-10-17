@@ -20,8 +20,6 @@ function drawReticle() {
 
 function gameOver() {
 	push()
-
-	print("DED");
 	noStroke();
 	fill(20)
 	rect(0, 200, 600, 200)
@@ -30,13 +28,13 @@ function gameOver() {
 	textAlign(CENTER);
 	textSize(50);
 	fill(170, 20, 20);
-	text("YOU DIED", 300, 300)
+	text("YOU DIED", xCenter, yCenter)
 
 	textFont('Helvetica');
 	textSize(18);
 	fill(235);
 	let scoreString = "score: " + score;
-	text(scoreString, 300, 340);
+	text(scoreString, xCenter, yCenter);
 
 	if (score > highScore) {
 		highScore = score;
@@ -45,10 +43,10 @@ function gameOver() {
 	}
 
 	let highScoreString = "highscore: " + highScore;
-	text(highScoreString, 300, 360);
+	text(highScoreString, xCenter, yCenter);
 
 	Retry.show();
-	Retry.position(250, 380);
+	Retry.position(xCenter, yCenter);
 	Retry.size(100, 30);
 	Retry.style('background-color', '#202020');
 	Retry.style('color', '#FFFFFF');
@@ -63,8 +61,8 @@ function reset() {
 	Retry.hide();
 	bulletsFired = [];
 	targetEnemies = [];
-	playerPosX = 300;
-	playerPosY = 300;
+	playerPosX = xCenter;
+	playerPosY = yCenter;
 	targetTimer = 0;
 	entitySpawnMultiplier = 2;
 	entitySizeMultiplier = 2;

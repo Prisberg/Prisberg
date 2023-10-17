@@ -1,21 +1,27 @@
 let bulletsFired = [];
 let targetEnemies = [];
 let playerCharacter;
-let playerPosX = 300;
-let playerPosY = 300;
+let playerPosX;
+let playerPosY;
 let targetTimer = 0;
 let entitySpawnMultiplier = 2;
 let entitySizeMultiplier = 2;
 let score = 0;
 let Retry;
+let xCenter;
+let yCenter;
 
 let highScore = 0;
 
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
-	angleMode();
+	xCenter = windowWidth / 2
+	yCenter = windowHeight / 2
+	playerPosX = xCenter;
+	playerPosY = yCenter;
 	playerCharacter = new Player();
+	angleMode();
 	Retry = createButton('Try again');
 	Retry.hide();
 
@@ -27,6 +33,8 @@ function setup() {
 
 function windowResized() {
 	// TODO, Fix: Repeatedly resizing when dead increases your score slightly.
+	xCenter = windowWidth / 2
+	yCenter = windowHeight / 2
 	resizeCanvas(windowWidth, windowHeight);
 }
 
@@ -43,7 +51,6 @@ function draw() {
 	// ENTITYS-SPAWN 
 	targetTimer += 1;
 	let spawnInterval = int(100 / entitySpawnMultiplier);
-	//print(spawnInterval)
 	if (targetTimer % spawnInterval == 0) {
 		let newEntity = new Entity();
 		targetEnemies.push(newEntity);
