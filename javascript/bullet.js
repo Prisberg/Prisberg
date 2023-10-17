@@ -1,7 +1,7 @@
 class Bullet {
 	constructor(xSpd, ySpd) {
-		this.x = turPosX;
-		this.y = turPosY;
+		this.x = playerPosX;
+		this.y = playerPosY;
 		this.xSpd = 12 * xSpd;
 		this.ySpd = 12 * ySpd;
 	}

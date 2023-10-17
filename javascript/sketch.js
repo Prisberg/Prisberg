@@ -1,8 +1,8 @@
 let bulletsFired = [];
 let targetEnemies = [];
 let playerCharacter;
-let turPosX = 300;
-let turPosY = 300;
+let playerPosX = 300;
+let playerPosY = 300;
 let targetTimer = 0;
 let entitySpawnMultiplier = 2;
 let entitySizeMultiplier = 2;
@@ -14,9 +14,9 @@ let highScore = 0;
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
-	angleMode(DEGREES);
-	playerCharacter = new Player(300, 300);
-	Retry = createButton('retry');
+	angleMode();
+	playerCharacter = new Player();
+	Retry = createButton('Try again');
 	Retry.hide();
 
 	// if (!Cookies.get('highscore')) {
@@ -26,6 +26,7 @@ function setup() {
 }
 
 function windowResized() {
+	// TODO, Fix: Repeatedly resizing when dead increases your score slightly.
 	resizeCanvas(windowWidth, windowHeight);
 }
 
@@ -37,10 +38,9 @@ function mousePressed() {
 
 function draw() {
 	background(20);
-
 	drawReticle();
 
-	//----------------------------------------ENTITYS-SPAWN--------------------------------------
+	// ENTITYS-SPAWN 
 	targetTimer += 1;
 	let spawnInterval = int(100 / entitySpawnMultiplier);
 	//print(spawnInterval)
@@ -50,7 +50,7 @@ function draw() {
 		score += 5;
 	}
 
-	//----------------------------------------------BULLETS----------------------------------------
+	// BULLETS 
 	for (var i = 0; i < bulletsFired.length; i++) {
 		bulletsFired[i].display();
 		bulletsFired[i].update();
@@ -62,7 +62,7 @@ function draw() {
 		}
 	}
 
-	//-------------------------------------------EVIL-ENTITIES----------------------------------------
+	// EVIL-ENTITIES 
 	for (var i = 0; i < targetEnemies.length; i++) {
 		targetEnemies[i].display();
 		targetEnemies[i].update();
@@ -76,14 +76,14 @@ function draw() {
 		entitySizeMultiplier += 0.001;
 	}
 
-	//------------------------------------------HERO-AND-HERO-DED---------------------------------------a
+	// HERO-AND-HERO-DED 
 	playerCharacter.display();
 	playerCharacter.move();
 	if (playerCharacter.hitScan()) {
 		gameOver();
 	}
 
-	//------------------------------------------TUTORIAL------------------------------------------------
+	// TUTORIAL 
 	noStroke();
 	if (targetTimer < 500) {
 		textAlign(LEFT);

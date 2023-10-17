@@ -1,6 +1,6 @@
 function getMouseVector() {
-	let mouseXalt = mouseX - turPosX;
-	let mouseYalt = mouseY - turPosY;
+	let mouseXalt = mouseX - playerPosX;
+	let mouseYalt = mouseY - playerPosY;
 	let mouseDir = createVector(mouseXalt, mouseYalt);
 	mouseDir.normalize();
 	return mouseDir;
@@ -15,7 +15,7 @@ function drawReticle() {
 	line(mouseX - 14, mouseY - 14, mouseX + 14, mouseY + 14);
 	line(mouseX + 14, mouseY - 14, mouseX - 14, mouseY + 14);
 	stroke(80, 160, 200, 125);
-	line(turPosX, turPosY, mouseX, mouseY);
+	line(playerPosX, playerPosY, mouseX, mouseY);
 }
 
 function gameOver() {
@@ -63,8 +63,8 @@ function reset() {
 	Retry.hide();
 	bulletsFired = [];
 	targetEnemies = [];
-	turPosX = 300;
-	turPosY = 300;
+	playerPosX = 300;
+	playerPosY = 300;
 	targetTimer = 0;
 	entitySpawnMultiplier = 2;
 	entitySizeMultiplier = 2;
