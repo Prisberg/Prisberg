@@ -22,13 +22,13 @@ function gameOver() {
 	push()
 	noStroke();
 	fill(20)
-	rect(0, 200, 600, 200)
+	rect(xCenter - 150, yCenter - 100, 300, 200)
 
 	textFont('Georgia');
 	textAlign(CENTER);
 	textSize(50);
 	fill(170, 20, 20);
-	text("YOU DIED", xCenter, yCenter)
+	text("YOU DIED", xCenter, yCenter - 25)
 
 	textFont('Helvetica');
 	textSize(18);
@@ -43,18 +43,18 @@ function gameOver() {
 	}
 
 	let highScoreString = "highscore: " + highScore;
-	text(highScoreString, xCenter, yCenter);
+	text(highScoreString, xCenter, yCenter + 25);
 
 	Retry.show();
-	Retry.position(xCenter, yCenter);
+	Retry.position(xCenter - 50, yCenter + 50);
 	Retry.size(100, 30);
 	Retry.style('background-color', '#202020');
 	Retry.style('color', '#FFFFFF');
 	Retry.mousePressed(reset);
+	Retry.elt.width
 
 	pop();
 	noLoop();
-
 }
 
 function reset() {

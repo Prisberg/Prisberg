@@ -26,8 +26,8 @@ class Bullet {
 	}
 
 	hitScan() {
-		for (var i = 0; i < targetEnemies.length; i++) {
-			var collideOrNot = collideCircleCircle(this.x, this.y, 10, targetEnemies[i].myX(), targetEnemies[i].myY(), targetEnemies[i].myR())
+		for (let i = 0; i < targetEnemies.length; i++) {
+			let collideOrNot = collideCircleCircle(this.x, this.y, 10, targetEnemies[i].myX(), targetEnemies[i].myY(), targetEnemies[i].myR())
 			if (collideOrNot) {
 				targetEnemies.splice(i, 1);
 				score += 1;

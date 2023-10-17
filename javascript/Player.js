@@ -44,8 +44,8 @@ class Player {
 	 * @returns {boolean} - True if a collision is detected, otherwise false.
 	 */
 	hitScan() {
-		for (var i = 0; i < targetEnemies.length; i++) {
-			var collideOrNot = collideCircleCircle(playerPosX, playerPosY, 30, targetEnemies[i].myX(), targetEnemies[i].myY(), targetEnemies[i].myR());
+		for (let i = 0; i < targetEnemies.length; i++) {
+			let collideOrNot = collideCircleCircle(playerPosX, playerPosY, 30, targetEnemies[i].myX(), targetEnemies[i].myY(), targetEnemies[i].myR());
 			if (collideOrNot) {
 				return true;
 			}

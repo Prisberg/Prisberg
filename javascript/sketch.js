@@ -16,13 +16,14 @@ let highScore = 0;
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
-	xCenter = windowWidth / 2
-	yCenter = windowHeight / 2
+	xCenter = windowWidth / 2;
+	yCenter = windowHeight / 2;
 	playerPosX = xCenter;
 	playerPosY = yCenter;
 	playerCharacter = new Player();
 	angleMode();
 	Retry = createButton('Try again');
+	Retry.elt.type = "button"
 	Retry.hide();
 
 	// if (!Cookies.get('highscore')) {
@@ -32,9 +33,9 @@ function setup() {
 }
 
 function windowResized() {
-	// TODO, Fix: Repeatedly resizing when dead increases your score slightly.
-	xCenter = windowWidth / 2
-	yCenter = windowHeight / 2
+	// TODO, Fix: Repeatedly resizing when dead increases your score indefinitely.
+	xCenter = windowWidth / 2;
+	yCenter = windowHeight / 2;
 	resizeCanvas(windowWidth, windowHeight);
 }
 
@@ -58,7 +59,7 @@ function draw() {
 	}
 
 	// BULLETS 
-	for (var i = 0; i < bulletsFired.length; i++) {
+	for (let i = 0; i < bulletsFired.length; i++) {
 		bulletsFired[i].display();
 		bulletsFired[i].update();
 		if (bulletsFired[i].outOfBounds()) {
@@ -70,7 +71,7 @@ function draw() {
 	}
 
 	// EVIL-ENTITIES 
-	for (var i = 0; i < targetEnemies.length; i++) {
+	for (let i = 0; i < targetEnemies.length; i++) {
 		targetEnemies[i].display();
 		targetEnemies[i].update();
 		if (targetEnemies[i].outOfBounds()) {
