@@ -1,8 +1,9 @@
 class GameEngine {
-    constructor() { }
+    constructor() {
+        this.playerCharacter = new Player();
+    }
     play() {
         drawReticle();
-
         // ENTITY SPAWN 
         targetTimer += 1;
         let spawnInterval = int(100 / entitySpawnMultiplier);
@@ -39,9 +40,9 @@ class GameEngine {
         }
 
         // HERO AND HERO DEAD 
-        playerCharacter.display();
-        playerCharacter.move();
-        if (playerCharacter.hitScan()) {
+        this.playerCharacter.display();
+        this.playerCharacter.move();
+        if (this.playerCharacter.hitScan()) {
             gameState = "dead"
         }
 

@@ -15,13 +15,11 @@ let targetEnemies = [];
  * @method move - Moves the player entity based on keyboard input.
  * @method hitScan - Detects collision with enemies.
  */
-let playerCharacter;
 let targetTimer = 0;
 let entitySpawnMultiplier = 2;
 let entitySizeMultiplier = 2;
 let score = 0;
 let highScore = 0;
-let Retry;
 /** 
  * A string that keeps track of the state of the game.
  * @string
@@ -50,11 +48,8 @@ function setup() {
 	center.y = windowHeight / 2;
 	playerPos.x = center.x;
 	playerPos.y = center.y;
-	playerCharacter = new Player();
 	angleMode();
-	Retry = createButton('Try again');
-	Retry.elt.type = "button"
-	Retry.hide();
+
 
 	// if (!Cookies.get('highscore')) {
 	// 	Cookies.set('highscore', '0');
@@ -77,7 +72,6 @@ function mousePressed() {
 
 function draw() {
 	background(20);
-
 	if (gameState === "start") {
 		gameState = "playing"
 	} else if (gameState === "playing") {
@@ -86,7 +80,8 @@ function draw() {
 	} else if (gameState === "pause") {
 
 	} else if (gameState === "dead") {
-		gameOver();
+		const gameOver = new GameOver();
+		gameOver.menu();
 	}
 
 }
@@ -95,7 +90,7 @@ function keyPressed() {
 	if (keyCode === ESCAPE) {
 		if (gameState === 'playing') {
 			gameState = 'pause'
-		} else {
+		} else if (gameState === 'pause') {
 			gameState = 'playing'
 		}
 	}
