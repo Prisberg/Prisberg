@@ -83,7 +83,7 @@ function draw() {
 		entitySizeMultiplier += 0.001;
 	}
 
-	// HERO-AND-HERO-DED 
+	// HERO-AND-HERO-DEAD 
 	playerCharacter.display();
 	playerCharacter.move();
 	if (playerCharacter.hitScan()) {
@@ -101,9 +101,6 @@ function draw() {
 		text("mouse: aim", 35, 50);
 		text("left click: fire", 35, 65);
 	}
-	fill(60);
-	textAlign(CENTER);
-	text("version 1.06 by carrefinho", 300, 580);
 }
 
 
