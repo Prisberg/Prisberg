@@ -1,25 +1,49 @@
-let bulletsFired = [];
+/**
+ * Represents the player's blasts in the game.
+ * @class
+ * @method display - Creates the blasts and renders it on the canvas.
+ * @method update - Calculates the speed at which the blasts travel.
+ * @method outOfBounds - Detects whether the blast is inside the canvasF.
+ * @method hitScan - Detects collision with enemies.
+ */
+let blastsFired = [];
 let targetEnemies = [];
+/**
+ * Represents the player in the game.
+ * @class
+ * @method display - Creates the player entity and renders it on the canvas.
+ * @method move - Moves the player entity based on keyboard input.
+ * @method hitScan - Detects collision with enemies.
+ */
 let playerCharacter;
-let playerPosX;
-let playerPosY;
 let targetTimer = 0;
 let entitySpawnMultiplier = 2;
 let entitySizeMultiplier = 2;
 let score = 0;
-let Retry;
-let xCenter;
-let yCenter;
-
 let highScore = 0;
+let Retry;
+/** 
+ * X and Y value for the player entity
+  */
+let playerPos = {
+	x: undefined,
+	y: undefined
+};
+/** 
+ * X and Y value for the center of the canvas/window
+  */
+let center = {
+	x: undefined,
+	y: undefined
+};
 
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
-	xCenter = windowWidth / 2;
-	yCenter = windowHeight / 2;
-	playerPosX = xCenter;
-	playerPosY = yCenter;
+	center.x = windowWidth / 2;
+	center.y = windowHeight / 2;
+	playerPos.x = center.x;
+	playerPos.y = center.y;
 	playerCharacter = new Player();
 	angleMode();
 	Retry = createButton('Try again');
@@ -34,22 +58,22 @@ function setup() {
 
 function windowResized() {
 	// TODO, Fix: Repeatedly resizing when dead increases your score indefinitely.
-	xCenter = windowWidth / 2;
-	yCenter = windowHeight / 2;
+	center.x = windowWidth / 2;
+	center.y = windowHeight / 2;
 	resizeCanvas(windowWidth, windowHeight);
 }
 
 function mousePressed() {
 	let mouseVector = getMouseVector();
-	oneBullet = new Bullet(mouseVector.x, mouseVector.y);
-	bulletsFired.push(oneBullet);
+	oneBlast = new Blast(mouseVector.x, mouseVector.y);
+	blastsFired.push(oneBlast);
 }
 
 function draw() {
 	background(20);
 	drawReticle();
 
-	// ENTITYS-SPAWN 
+	// ENTITY SPAWN 
 	targetTimer += 1;
 	let spawnInterval = int(100 / entitySpawnMultiplier);
 	if (targetTimer % spawnInterval == 0) {
@@ -58,19 +82,19 @@ function draw() {
 		score += 5;
 	}
 
-	// BULLETS 
-	for (let i = 0; i < bulletsFired.length; i++) {
-		bulletsFired[i].display();
-		bulletsFired[i].update();
-		if (bulletsFired[i].outOfBounds()) {
-			bulletsFired.splice(i, 1);
+	// BLASTS 
+	for (let i = 0; i < blastsFired.length; i++) {
+		blastsFired[i].display();
+		blastsFired[i].update();
+		if (blastsFired[i].outOfBounds()) {
+			blastsFired.splice(i, 1);
 		}
-		else if (bulletsFired[i].hitScan()) {
-			bulletsFired.splice(i, 1);
+		else if (blastsFired[i].hitScan()) {
+			blastsFired.splice(i, 1);
 		}
 	}
 
-	// EVIL-ENTITIES 
+	// EVIL ENTITIES 
 	for (let i = 0; i < targetEnemies.length; i++) {
 		targetEnemies[i].display();
 		targetEnemies[i].update();
@@ -84,7 +108,7 @@ function draw() {
 		entitySizeMultiplier += 0.001;
 	}
 
-	// HERO-AND-HERO-DEAD 
+	// HERO AND HERO DEAD 
 	playerCharacter.display();
 	playerCharacter.move();
 	if (playerCharacter.hitScan()) {
@@ -103,31 +127,3 @@ function draw() {
 		text("left click: fire", 35, 65);
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

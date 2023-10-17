@@ -1,6 +1,6 @@
 function getMouseVector() {
-	let mouseXalt = mouseX - playerPosX;
-	let mouseYalt = mouseY - playerPosY;
+	let mouseXalt = mouseX - playerPos.x;
+	let mouseYalt = mouseY - playerPos.y;
 	let mouseDir = createVector(mouseXalt, mouseYalt);
 	mouseDir.normalize();
 	return mouseDir;
@@ -15,26 +15,26 @@ function drawReticle() {
 	line(mouseX - 14, mouseY - 14, mouseX + 14, mouseY + 14);
 	line(mouseX + 14, mouseY - 14, mouseX - 14, mouseY + 14);
 	stroke(80, 160, 200, 125);
-	line(playerPosX, playerPosY, mouseX, mouseY);
+	line(playerPos.x, playerPos.y, mouseX, mouseY);
 }
 
 function gameOver() {
 	push()
 	noStroke();
 	fill(20)
-	rect(xCenter - 150, yCenter - 100, 300, 200)
+	rect(center.x - 150, center.y - 100, 300, 200)
 
 	textFont('Georgia');
 	textAlign(CENTER);
 	textSize(50);
 	fill(170, 20, 20);
-	text("YOU DIED", xCenter, yCenter - 25)
+	text("YOU DIED", center.x, center.y - 25)
 
 	textFont('Helvetica');
 	textSize(18);
 	fill(235);
 	let scoreString = "score: " + score;
-	text(scoreString, xCenter, yCenter);
+	text(scoreString, center.x, center.y);
 
 	if (score > highScore) {
 		highScore = score;
@@ -43,10 +43,10 @@ function gameOver() {
 	}
 
 	let highScoreString = "highscore: " + highScore;
-	text(highScoreString, xCenter, yCenter + 25);
+	text(highScoreString, center.x, center.y + 25);
 
 	Retry.show();
-	Retry.position(xCenter - 50, yCenter + 50);
+	Retry.position(center.x - 50, center.y + 50);
 	Retry.size(100, 30);
 	Retry.style('background-color', '#202020');
 	Retry.style('color', '#FFFFFF');
@@ -59,10 +59,10 @@ function gameOver() {
 
 function reset() {
 	Retry.hide();
-	bulletsFired = [];
+	blastsFired = [];
 	targetEnemies = [];
-	playerPosX = xCenter;
-	playerPosY = yCenter;
+	playerPos.x = center.x;
+	playerPos.y = center.y;
 	targetTimer = 0;
 	entitySpawnMultiplier = 2;
 	entitySizeMultiplier = 2;
