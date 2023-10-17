@@ -53,6 +53,7 @@ function gameOver() {
 	Retry.mousePressed(reset);
 	Retry.elt.width
 
+	gameState = 'playing'
 	pop();
 	noLoop();
 }

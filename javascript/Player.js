@@ -1,5 +1,7 @@
 class Player {
 	constructor() {
+		this.speed = 2;
+		this.stamina = 50;
 	}
 
 	display() {
@@ -12,16 +14,29 @@ class Player {
 
 	move() {
 		if ((keyIsDown(65) || keyIsDown(LEFT_ARROW)) && playerPos.x > 5) {
-			playerPos.x -= 2;
+			playerPos.x -= this.speed;
 		}
 		if ((keyIsDown(68) || keyIsDown(RIGHT_ARROW)) && playerPos.x < width - 5) {
-			playerPos.x += 2;
+			playerPos.x += this.speed;
 		}
 		if ((keyIsDown(87) || keyIsDown(UP_ARROW)) && playerPos.y > 5) {
-			playerPos.y -= 2;
+			playerPos.y -= this.speed;
 		}
 		if ((keyIsDown(83) || keyIsDown(DOWN_ARROW)) && playerPos.y < height - 5) {
-			playerPos.y += 2;
+			playerPos.y += this.speed;
+		}
+		if ((keyIsDown(16) || keyIsDown(SHIFT))) {
+			if (this.stamina > 0) {
+				this.speed = 4;
+				this.stamina--;
+			} else {
+				this.speed = 2;
+			}
+		} else {
+			if (this.stamina < 50) {
+				this.stamina++;
+			}
+			this.speed = 2;
 		}
 	}
 

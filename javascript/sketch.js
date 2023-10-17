@@ -23,6 +23,12 @@ let score = 0;
 let highScore = 0;
 let Retry;
 /** 
+ * A string that keeps track of the state of the game.
+ * @string
+ * States: start, playing, paus, dead.
+ */
+let gameState = 'start'
+/** 
  * X and Y value for the player entity
   */
 let playerPos = {
@@ -71,59 +77,73 @@ function mousePressed() {
 
 function draw() {
 	background(20);
-	drawReticle();
 
-	// ENTITY SPAWN 
-	targetTimer += 1;
-	let spawnInterval = int(100 / entitySpawnMultiplier);
-	if (targetTimer % spawnInterval == 0) {
-		let newEntity = new Entity();
-		targetEnemies.push(newEntity);
-		score += 5;
-	}
+	if (gameState === "start") {
+		gameState = "playing"
+	} else if (gameState === "playing") {
+		drawReticle();
 
-	// BLASTS 
-	for (let i = 0; i < blastsFired.length; i++) {
-		blastsFired[i].display();
-		blastsFired[i].update();
-		if (blastsFired[i].outOfBounds()) {
-			blastsFired.splice(i, 1);
+		// ENTITY SPAWN 
+		targetTimer += 1;
+		let spawnInterval = int(100 / entitySpawnMultiplier);
+		if (targetTimer % spawnInterval == 0) {
+			let newEntity = new Entity();
+			targetEnemies.push(newEntity);
+			score += 5;
 		}
-		else if (blastsFired[i].hitScan()) {
-			blastsFired.splice(i, 1);
+
+		// BLASTS 
+		for (let i = 0; i < blastsFired.length; i++) {
+			blastsFired[i].display();
+			blastsFired[i].update();
+			if (blastsFired[i].outOfBounds()) {
+				blastsFired.splice(i, 1);
+			}
+			else if (blastsFired[i].hitScan()) {
+				blastsFired.splice(i, 1);
+			}
 		}
-	}
 
-	// EVIL ENTITIES 
-	for (let i = 0; i < targetEnemies.length; i++) {
-		targetEnemies[i].display();
-		targetEnemies[i].update();
-		if (targetEnemies[i].outOfBounds()) {
-			targetEnemies.splice(i, 1);
+		// EVIL ENTITIES 
+		for (let i = 0; i < targetEnemies.length; i++) {
+			targetEnemies[i].display();
+			targetEnemies[i].update();
+			if (targetEnemies[i].outOfBounds()) {
+				targetEnemies.splice(i, 1);
+			}
 		}
-	}
 
-	entitySpawnMultiplier += 0.001;
-	if (entitySizeMultiplier < 5) {
-		entitySizeMultiplier += 0.001;
-	}
+		entitySpawnMultiplier += 0.001;
+		if (entitySizeMultiplier < 5) {
+			entitySizeMultiplier += 0.001;
+		}
 
-	// HERO AND HERO DEAD 
-	playerCharacter.display();
-	playerCharacter.move();
-	if (playerCharacter.hitScan()) {
+		// HERO AND HERO DEAD 
+		playerCharacter.display();
+		playerCharacter.move();
+		if (playerCharacter.hitScan()) {
+			gameState = "dead"
+		}
+
+		// TUTORIAL 
+		noStroke();
+		if (targetTimer < 500) {
+			textAlign(LEFT);
+			textFont('Helvetica');
+			textSize(14);
+			fill(235);
+			text("Arrow keys or wasd: Move", 35, 35);
+			text("Mouse: Aim", 35, 50);
+			text("Left click: Fire", 35, 65);
+		}
+	} else if (gameState === "pause") {
+
+	} else if (gameState === "dead") {
 		gameOver();
 	}
 
-	// TUTORIAL 
-	noStroke();
-	if (targetTimer < 500) {
-		textAlign(LEFT);
-		textFont('Helvetica');
-		textSize(14);
-		fill(235);
-		text("arrow keys or wasd: move", 35, 35);
-		text("mouse: aim", 35, 50);
-		text("left click: fire", 35, 65);
-	}
+}
+
+function keyPressed() {
+	if (keyCode === ESCAPE) gameState = 'pause'
 }
