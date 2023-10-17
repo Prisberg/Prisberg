@@ -62,12 +62,12 @@ function gameOver() {
 function reset() {
 	Retry.hide();
 	bulletsFired = [];
-	targetBalloons = [];
+	targetEnemies = [];
 	turPosX = 300;
 	turPosY = 300;
 	targetTimer = 0;
-	balloonSpawnMultiplier = 2;
-	balloonSizeMultiplier = 2;
+	entitySpawnMultiplier = 2;
+	entitySizeMultiplier = 2;
 	score = 0;
 
 	loop();

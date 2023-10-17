@@ -26,8 +26,8 @@ class Player {
 	}
 
 	hitScan() {
-		for (var i = 0; i < targetBalloons.length; i++) {
-			var collideOrNot = collideCircleCircle(turPosX, turPosY, 30, targetBalloons[i].myX(), targetBalloons[i].myY(), targetBalloons[i].myR())
+		for (var i = 0; i < targetEnemies.length; i++) {
+			var collideOrNot = collideCircleCircle(turPosX, turPosY, 30, targetEnemies[i].myX(), targetEnemies[i].myY(), targetEnemies[i].myR())
 			if (collideOrNot) {
 				return true;
 			}

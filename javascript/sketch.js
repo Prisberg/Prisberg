@@ -1,11 +1,11 @@
 let bulletsFired = [];
-let targetBalloons = [];
+let targetEnemies = [];
 let playerCharacter;
 let turPosX = 300;
 let turPosY = 300;
 let targetTimer = 0;
-let balloonSpawnMultiplier = 2;
-let balloonSizeMultiplier = 2;
+let entitySpawnMultiplier = 2;
+let entitySizeMultiplier = 2;
 let score = 0;
 let Retry;
 
@@ -31,7 +31,7 @@ function windowResized() {
 
 function mousePressed() {
 	let mouseVector = getMouseVector();
-	oneBullet = new bullet(mouseVector.x, mouseVector.y);
+	oneBullet = new Bullet(mouseVector.x, mouseVector.y);
 	bulletsFired.push(oneBullet);
 }
 
@@ -40,16 +40,15 @@ function draw() {
 
 	drawReticle();
 
-	//----------------------------------------BALLOONS-SPAWN--------------------------------------
+	//----------------------------------------ENTITYS-SPAWN--------------------------------------
 	targetTimer += 1;
-	let spawnInterval = int(100 / balloonSpawnMultiplier);
+	let spawnInterval = int(100 / entitySpawnMultiplier);
 	//print(spawnInterval)
 	if (targetTimer % spawnInterval == 0) {
-		let newBalloon = new balloon();
-		targetBalloons.push(newBalloon);
+		let newEntity = new Entity();
+		targetEnemies.push(newEntity);
 		score += 5;
 	}
-
 
 	//----------------------------------------------BULLETS----------------------------------------
 	for (var i = 0; i < bulletsFired.length; i++) {
@@ -63,19 +62,18 @@ function draw() {
 		}
 	}
 
-
-	//-------------------------------------------EVIL-BALLOONS----------------------------------------
-	for (var i = 0; i < targetBalloons.length; i++) {
-		targetBalloons[i].display();
-		targetBalloons[i].update();
-		if (targetBalloons[i].outOfBounds()) {
-			targetBalloons.splice(i, 1);
+	//-------------------------------------------EVIL-ENTITIES----------------------------------------
+	for (var i = 0; i < targetEnemies.length; i++) {
+		targetEnemies[i].display();
+		targetEnemies[i].update();
+		if (targetEnemies[i].outOfBounds()) {
+			targetEnemies.splice(i, 1);
 		}
 	}
 
-	balloonSpawnMultiplier += 0.001;
-	if (balloonSizeMultiplier < 5) {
-		balloonSizeMultiplier += 0.001;
+	entitySpawnMultiplier += 0.001;
+	if (entitySizeMultiplier < 5) {
+		entitySizeMultiplier += 0.001;
 	}
 
 	//------------------------------------------HERO-AND-HERO-DED---------------------------------------a

@@ -1,4 +1,4 @@
-class balloon {
+class Entity {
 	constructor() {
 		this.side = int(random(4));
 		switch (this.side) {
@@ -23,9 +23,9 @@ class balloon {
 		this.targetY = turPosY;
 		this.targetDir = createVector(this.targetX - this.x, this.targetY - this.y);
 		this.targetDir.normalize();
-		this.xSpd = this.targetDir.x * balloonSpawnMultiplier;
-		this.ySpd = this.targetDir.y * balloonSpawnMultiplier;
-		this.r = 12 * balloonSizeMultiplier;
+		this.ySpd = this.targetDir.y * entitySpawnMultiplier;
+		this.xSpd = this.targetDir.x * entitySpawnMultiplier;
+		this.r = 12 * entitySizeMultiplier;
 
 	}
 
@@ -57,6 +57,4 @@ class balloon {
 	myR() {
 		return this.r;
 	}
-
-
 }

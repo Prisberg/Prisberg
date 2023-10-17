@@ -1,4 +1,4 @@
-class bullet {
+class Bullet {
 	constructor(xSpd, ySpd) {
 		this.x = turPosX;
 		this.y = turPosY;
@@ -26,10 +26,10 @@ class bullet {
 	}
 
 	hitScan() {
-		for (var i = 0; i < targetBalloons.length; i++) {
-			var collideOrNot = collideCircleCircle(this.x, this.y, 10, targetBalloons[i].myX(), targetBalloons[i].myY(), targetBalloons[i].myR())
+		for (var i = 0; i < targetEnemies.length; i++) {
+			var collideOrNot = collideCircleCircle(this.x, this.y, 10, targetEnemies[i].myX(), targetEnemies[i].myY(), targetEnemies[i].myR())
 			if (collideOrNot) {
-				targetBalloons.splice(i, 1);
+				targetEnemies.splice(i, 1);
 				score += 1;
 				return true;
 			}
