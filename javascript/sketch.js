@@ -15,6 +15,7 @@ let targetEnemies = [];
  * @method move - Moves the player entity based on keyboard input.
  * @method hitScan - Detects collision with enemies.
  */
+let playerCharacter;
 let targetTimer = 0;
 let entitySpawnMultiplier = 2;
 let entitySizeMultiplier = 2;
@@ -48,6 +49,7 @@ function setup() {
 	center.y = windowHeight / 2;
 	playerPos.x = center.x;
 	playerPos.y = center.y;
+	playerCharacter = new Player();
 	angleMode();
 
 
@@ -73,10 +75,11 @@ function mousePressed() {
 function draw() {
 	background(20);
 	if (gameState === "start") {
-		gameState = "playing"
+		const startMenu = new Start
+		startMenu.menu();
 	} else if (gameState === "playing") {
-		const game = new GameEngine()
-		game.play();
+		const gameEngine = new GameEngine()
+		gameEngine.play();
 	} else if (gameState === "pause") {
 
 	} else if (gameState === "dead") {

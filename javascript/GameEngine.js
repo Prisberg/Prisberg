@@ -1,6 +1,5 @@
 class GameEngine {
     constructor() {
-        this.playerCharacter = new Player();
     }
     play() {
         drawReticle();
@@ -40,9 +39,9 @@ class GameEngine {
         }
 
         // HERO AND HERO DEAD 
-        this.playerCharacter.display();
-        this.playerCharacter.move();
-        if (this.playerCharacter.hitScan()) {
+        playerCharacter.display();
+        playerCharacter.move();
+        if (playerCharacter.hitScan()) {
             gameState = "dead"
         }
 
