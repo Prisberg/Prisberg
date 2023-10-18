@@ -28,3 +28,44 @@ function drawReticle() {
 	stroke(80, 160, 200, 125);
 	line(playerPos.x, playerPos.y, mouseX, mouseY);
 }
+
+
+function mousePressed() {
+	let withinButtonXCoords = mouseX <= center.x + 100 && mouseX >= center.x - 100;
+
+	if (gameState === "start") {
+		// This seems to me like the most readable approach for clicking canvas buttons.
+		if (withinButtonXCoords)
+			if (mouseY <= center.y + 16 && mouseY >= center.y - 16) {
+				gameState = "playing";
+				console.log(gameState);
+			}
+	} else if (gameState === "playing") {
+		let mouseVector = getMouseVector();
+		oneBlast = new Blast(mouseVector.x, mouseVector.y);
+		blastsFired.push(oneBlast);
+	} else if (gameState === "pause") {
+
+	} else if (gameState === "dead") {
+		if (withinButtonXCoords) {
+			if (mouseY <= center.y + 16 && mouseY >= center.y - 16) {
+				gameState = "playing";
+				reset();
+			}
+			if (mouseY <= center.y + 64 && mouseY >= center.y + 32) {
+				gameState = "start";
+				reset();
+			}
+		}
+	}
+}
+
+function keyPressed() {
+	if (keyCode === ESCAPE) {
+		if (gameState === "playing") {
+			gameState = "pause"
+		} else if (gameState === "pause") {
+			gameState = "playing"
+		}
+	}
+}

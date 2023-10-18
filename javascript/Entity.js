@@ -19,14 +19,11 @@ class Entity {
 				this.y = height;
 				break;
 		}
-		this.targetX = playerPos.x;
-		this.targetY = playerPos.y;
-		this.targetDir = createVector(this.targetX - this.x, this.targetY - this.y);
+		this.targetDir = createVector(playerPos.x - this.x, playerPos.y - this.y);
 		this.targetDir.normalize();
 		this.ySpd = this.targetDir.y * entitySpawnMultiplier;
 		this.xSpd = this.targetDir.x * entitySpawnMultiplier;
 		this.r = 12 * entitySizeMultiplier;
-
 	}
 
 	display() {

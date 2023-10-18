@@ -45,18 +45,13 @@ let center = {
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
+	frameRate(60);
 	center.x = windowWidth / 2;
 	center.y = windowHeight / 2;
 	playerPos.x = center.x;
 	playerPos.y = center.y;
 	playerCharacter = new Player();
 	angleMode();
-
-
-	// if (!Cookies.get('highscore')) {
-	// 	Cookies.set('highscore', '0');
-	// }
-	// highScore = Cookies.get('highscore');
 }
 
 
@@ -83,44 +78,4 @@ function draw() {
 		game.menu();
 	}
 
-}
-
-function mousePressed() {
-	let withinButtonXCoords = mouseX <= center.x + 100 && mouseX >= center.x - 100;
-
-	if (gameState === "start") {
-		// This seems to me like the most readable approach for clicking canvas buttons.
-		if (withinButtonXCoords)
-			if (mouseY <= center.y + 16 && mouseY >= center.y - 16) {
-				gameState = "playing";
-				console.log(gameState);
-			}
-	} else if (gameState === "playing") {
-		let mouseVector = getMouseVector();
-		oneBlast = new Blast(mouseVector.x, mouseVector.y);
-		blastsFired.push(oneBlast);
-	} else if (gameState === "pause") {
-
-	} else if (gameState === "dead") {
-		if (withinButtonXCoords) {
-			if (mouseY <= center.y + 16 && mouseY >= center.y - 16) {
-				gameState = "playing";
-				reset();
-			}
-			if (mouseY <= center.y + 64 && mouseY >= center.y + 32) {
-				gameState = "start";
-				reset();
-			}
-		}
-	}
-}
-
-function keyPressed() {
-	if (keyCode === ESCAPE) {
-		if (gameState === "playing") {
-			gameState = "pause"
-		} else if (gameState === "pause") {
-			gameState = "playing"
-		}
-	}
 }
