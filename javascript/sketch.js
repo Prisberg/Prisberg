@@ -65,6 +65,8 @@ function setup() {
 function windowResized() {
 	center.x = windowWidth / 2;
 	center.y = windowHeight / 2;
+	playerPos.x = center.x;
+	playerPos.y = center.y;
 	resizeCanvas(windowWidth, windowHeight);
 }
 

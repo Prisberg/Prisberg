@@ -22,13 +22,13 @@ class Start {
         rect(center.x - 100, center.y - 16, 200, 32)
         textSize(16)
         noStroke();
-        fill(255)
+        fill(215, 237, 250)
         // subtract 2 from center.y + (number) cause it's more center aligned even tho it's not mathematically center.
         text('Play the Game', center.x, center.y + 6)
 
         textAlign(LEFT);
         textSize(14);
-        fill(235);
+        fill(215, 237, 250);
         text("Move using the arrow, or wasd, keys.", center.x, center.y + 64);
         text("Click to fire.", center.x, center.y + 80);
         text("Use shift to dash.", center.x, center.y + 96);
