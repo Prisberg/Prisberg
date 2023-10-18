@@ -59,42 +59,65 @@ function setup() {
 	// highScore = Cookies.get('highscore');
 }
 
+
 function windowResized() {
-	// TODO, Fix: Repeatedly resizing when dead increases your score indefinitely.
 	center.x = windowWidth / 2;
 	center.y = windowHeight / 2;
 	resizeCanvas(windowWidth, windowHeight);
 }
 
-function mousePressed() {
-	let mouseVector = getMouseVector();
-	oneBlast = new Blast(mouseVector.x, mouseVector.y);
-	blastsFired.push(oneBlast);
-}
 
 function draw() {
 	background(20);
+	let game;
 	if (gameState === "start") {
-		const startMenu = new Start
-		startMenu.menu();
+		console.log('start');
+		let game = new Start
+		game.menu();
 	} else if (gameState === "playing") {
-		const gameEngine = new GameEngine()
-		gameEngine.play();
+		console.log('playing');
+		game = new GameEngine()
+		game.play();
 	} else if (gameState === "pause") {
+		console.log('pause');
 
 	} else if (gameState === "dead") {
-		const gameOver = new GameOver();
-		gameOver.menu();
+		console.log('dead');
+		game = new GameOver();
+		game.menu();
 	}
 
 }
 
+function mousePressed() {
+	if (gameState === "start") {
+		// This seems to me like the most readable approach for clicking canvas buttons.
+		if (mouseX <= center.x + 25 && mouseX >= center.x - 25)
+			if (mouseY <= center.y + 16 && mouseY >= center.y - 16) {
+				gameState = "playing";
+				console.log(gameState);
+			}
+	} else if (gameState === "playing") {
+		let mouseVector = getMouseVector();
+		oneBlast = new Blast(mouseVector.x, mouseVector.y);
+		blastsFired.push(oneBlast);
+	} else if (gameState === "pause") {
+
+	} else if (gameState === "dead") {
+		if (mouseX <= center.x + 25 && mouseX >= center.x - 25)
+			if (mouseY <= center.y + 16 && mouseY >= center.y - 16) {
+				gameState = "playing";
+				reset();
+			}
+	}
+}
+
 function keyPressed() {
 	if (keyCode === ESCAPE) {
-		if (gameState === 'playing') {
-			gameState = 'pause'
-		} else if (gameState === 'pause') {
-			gameState = 'playing'
+		if (gameState === "playing") {
+			gameState = "pause"
+		} else if (gameState === "pause") {
+			gameState = "playing"
 		}
 	}
 }
