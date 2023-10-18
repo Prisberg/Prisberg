@@ -42,10 +42,18 @@ let center = {
 	y: undefined
 };
 
+let images;
+let font;
+
+function preload() {
+	images = loadImage('../assets/images/pxHeroMenu.png')
+	font = loadFont('../assets/fonts/GrenzeGotisch.ttf')
+}
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
 	frameRate(60);
+	textFont(font);
 	center.x = windowWidth / 2;
 	center.y = windowHeight / 2;
 	playerPos.x = center.x;
@@ -54,22 +62,20 @@ function setup() {
 	angleMode();
 }
 
-
 function windowResized() {
 	center.x = windowWidth / 2;
 	center.y = windowHeight / 2;
 	resizeCanvas(windowWidth, windowHeight);
 }
 
-
 function draw() {
-	background(20);
+	background(13, 17, 23);
 	let game;
 	if (gameState === "start") {
-		let game = new Start
+		game = new Start();
 		game.menu();
 	} else if (gameState === "playing") {
-		game = new GameEngine()
+		game = new GameEngine();
 		game.play();
 	} else if (gameState === "pause") {
 
@@ -77,5 +83,4 @@ function draw() {
 		game = new GameOver();
 		game.menu();
 	}
-
 }

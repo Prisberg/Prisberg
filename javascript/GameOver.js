@@ -5,12 +5,10 @@ class GameOver {
         fill(20)
         rect(center.x - 150, center.y - 100, 300, 200)
         textAlign(CENTER);
-        textFont('Georgia');
         textSize(50);
         fill(170, 20, 20);
         text("YOU DIED", center.x, center.y - 100)
 
-        textFont('Helvetica');
         textSize(18);
         fill(235);
         let scoreString = "score: " + score;

@@ -1,4 +1,5 @@
 <!-- ![Prisberg Blast'em](/assets/profile.svg) -->
+<!-- Am I the type of guy who builds a game and makes himself the main character? Yes, yes I am. -->
 ![GoodMorningSnoopyGIF](https://github.com/Prisberg/Prisberg/assets/94374883/5b196d24-1400-4437-a0d2-9cbbaf84c895)
 
 # Hey!

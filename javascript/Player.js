@@ -40,6 +40,18 @@ class Player {
 		}
 	}
 
+	drawReticle() {
+		noFill();
+		strokeWeight(1.5);
+		stroke(0, 100, 125, 125);
+		ellipse(mouseX, mouseY, 20);
+		stroke(80, 160, 200, 125);
+		line(mouseX - 14, mouseY - 14, mouseX + 14, mouseY + 14);
+		line(mouseX + 14, mouseY - 14, mouseX - 14, mouseY + 14);
+		stroke(80, 160, 200, 125);
+		line(playerPos.x, playerPos.y, mouseX, mouseY);
+	}
+
 	hitScan() {
 		for (let i = 0; i < targetEnemies.length; i++) {
 			let collideOrNot = collideCircleCircle(playerPos.x, playerPos.y, 30, targetEnemies[i].myX(), targetEnemies[i].myY(), targetEnemies[i].myR());

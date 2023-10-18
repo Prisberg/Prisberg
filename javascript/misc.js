@@ -17,19 +17,6 @@ function reset() {
 	score = 0;
 }
 
-function drawReticle() {
-	noFill();
-	strokeWeight(1.5);
-	stroke(0, 100, 125, 125);
-	ellipse(mouseX, mouseY, 20);
-	stroke(80, 160, 200, 125);
-	line(mouseX - 14, mouseY - 14, mouseX + 14, mouseY + 14);
-	line(mouseX + 14, mouseY - 14, mouseX - 14, mouseY + 14);
-	stroke(80, 160, 200, 125);
-	line(playerPos.x, playerPos.y, mouseX, mouseY);
-}
-
-
 function mousePressed() {
 	let withinButtonXCoords = mouseX <= center.x + 100 && mouseX >= center.x - 100;
 
@@ -38,7 +25,6 @@ function mousePressed() {
 		if (withinButtonXCoords)
 			if (mouseY <= center.y + 16 && mouseY >= center.y - 16) {
 				gameState = "playing";
-				console.log(gameState);
 			}
 	} else if (gameState === "playing") {
 		let mouseVector = getMouseVector();

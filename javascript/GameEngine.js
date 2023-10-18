@@ -41,23 +41,11 @@ class GameEngine {
     }
 
     updatePlayerCharacter() {
+        playerCharacter.drawReticle();
         playerCharacter.display();
         playerCharacter.move();
         if (playerCharacter.hitScan()) {
             gameState = "dead";
-        }
-    }
-
-    drawTutorial() {
-        noStroke();
-        if (targetTimer < 500) {
-            textAlign(LEFT);
-            textFont('Helvetica');
-            textSize(14);
-            fill(235);
-            text("Arrow keys or wasd: Move", 35, 35);
-            text("Mouse: Aim", 35, 50);
-            text("Left click: Fire", 35, 65);
         }
     }
 
@@ -67,6 +55,5 @@ class GameEngine {
         this.updateTargetEnemies();
         this.updateGameProgress();
         this.updatePlayerCharacter();
-        this.drawTutorial();
     }
 }
