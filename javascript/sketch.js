@@ -71,18 +71,14 @@ function draw() {
 	background(20);
 	let game;
 	if (gameState === "start") {
-		console.log('start');
 		let game = new Start
 		game.menu();
 	} else if (gameState === "playing") {
-		console.log('playing');
 		game = new GameEngine()
 		game.play();
 	} else if (gameState === "pause") {
-		console.log('pause');
 
 	} else if (gameState === "dead") {
-		console.log('dead');
 		game = new GameOver();
 		game.menu();
 	}
@@ -90,9 +86,11 @@ function draw() {
 }
 
 function mousePressed() {
+	let withinButtonXCoords = mouseX <= center.x + 100 && mouseX >= center.x - 100;
+
 	if (gameState === "start") {
 		// This seems to me like the most readable approach for clicking canvas buttons.
-		if (mouseX <= center.x + 25 && mouseX >= center.x - 25)
+		if (withinButtonXCoords)
 			if (mouseY <= center.y + 16 && mouseY >= center.y - 16) {
 				gameState = "playing";
 				console.log(gameState);
@@ -104,11 +102,16 @@ function mousePressed() {
 	} else if (gameState === "pause") {
 
 	} else if (gameState === "dead") {
-		if (mouseX <= center.x + 25 && mouseX >= center.x - 25)
+		if (withinButtonXCoords) {
 			if (mouseY <= center.y + 16 && mouseY >= center.y - 16) {
 				gameState = "playing";
 				reset();
 			}
+			if (mouseY <= center.y + 64 && mouseY >= center.y + 32) {
+				gameState = "start";
+				reset();
+			}
+		}
 	}
 }
 
