@@ -6,7 +6,7 @@ class GameOver {
         stroke(215, 237, 250);
         strokeWeight(2)
         textAlign(CENTER);
-        textSize(50);
+        textSize(64);
         fill(170, 20, 20);
         text("You Died", center.x, center.y - 100)
 

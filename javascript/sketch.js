@@ -42,17 +42,27 @@ let center = {
 	y: undefined
 };
 
-let images;
+// let images;
+let animations = {
+	start: []
+};
 let font;
 
 function preload() {
-	images = loadImage('../assets/images/pxHeroMenu.png')
+	// images = loadImage('../assets/images/pxHeroMenu.png')
 	font = loadFont('../assets/fonts/GrenzeGotisch.ttf')
+
+	for (let i = 0; i < 15; i++) {
+		animations.start[i] = loadImage(`../assets/animatedMenuHero/pxArt (${i}).png`)
+	}
 }
 
 function setup() {
+	// Making the start animation loop without adding more images.
+	animations.start.push(...animations.start.slice(7).reverse())
+	animations.start.unshift(...animations.start.slice(undefined, 7).reverse())
+
 	createCanvas(windowWidth, windowHeight);
-	frameRate(60);
 	textFont(font);
 	center.x = windowWidth / 2;
 	center.y = windowHeight / 2;
@@ -74,9 +84,11 @@ function draw() {
 	background(13, 17, 23);
 	let game;
 	if (gameState === "start") {
+		frameRate(6);
 		game = new Start();
 		game.menu();
 	} else if (gameState === "playing") {
+		frameRate(60);
 		game = new GameEngine();
 		game.play();
 	} else if (gameState === "pause") {

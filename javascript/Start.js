@@ -1,15 +1,16 @@
+let continuedAnimationActive = false;
 class Start {
     constructor() {
         this.heroImageX = 0;
+        this.heroAnimFrame = frameCount % 30;
     }
     menu() {
         fill(6, 8, 11)
         rect(0, center.y / 2, windowWidth, center.y)
-        // After the windowWidth reaches 870px I need to increase the x position with one per pixel above 870px
         if (windowWidth > 870) {
             this.heroImageX = center.x - 450;
         }
-        image(images, this.heroImageX, center.y / 2 + 20, center.y - 20, center.y - 20)
+        image(animations.start[this.heroAnimFrame], this.heroImageX, center.y / 2, center.y, center.y)
 
         stroke(111, 0, 57);
         strokeWeight(2)
