@@ -23,7 +23,7 @@ function mousePressed() {
 	if (gameState === "start") {
 		// This seems to me like the most readable approach for clicking canvas buttons.
 		if (withinButtonXCoords)
-			if (mouseY <= center.y + 16 && mouseY >= center.y - 16) {
+			if (mouseY <= center.y + 32 && mouseY >= center.y - 32) {
 				gameState = "playing";
 			}
 	} else if (gameState === "playing") {

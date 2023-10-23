@@ -42,14 +42,16 @@ let center = {
 	y: undefined
 };
 
-// let images;
+let images = {
+	player: undefined
+};
 let animations = {
 	start: []
 };
 let font;
 
 function preload() {
-	// images = loadImage('../assets/images/pxHeroMenu.png')
+	images.player = loadImage('../assets/images/player.png')
 	font = loadFont('../assets/fonts/GrenzeGotisch.ttf')
 
 	for (let i = 0; i < 15; i++) {

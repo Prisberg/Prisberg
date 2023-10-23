@@ -6,9 +6,11 @@ class Player {
 
 	display() {
 		push();
-		stroke(230, 255, 0);
-		fill(255, 255, 255);
-		ellipse(playerPos.x, playerPos.y, 30);
+		angleMode(DEGREES); // Change the mode to DEGREES
+		let a = atan2(mouseY - playerPos.y, mouseX - playerPos.x);
+		translate(playerPos.x, playerPos.y)
+		rotate(a);
+		image(images.player, -30, -39 / 2, 60, 39)
 		pop();
 	}
 
@@ -38,6 +40,19 @@ class Player {
 			}
 			this.speed = 2;
 		}
+	}
+	drawStaminaBar() {
+		fill(6, 8, 11, 225);
+		rect(10, height - 30, 200, 16);
+
+		fill(111, 0, 57);
+		rect(10, height - 30, this.stamina * 4, 16)
+
+		noStroke();
+		fill(215, 237, 250);
+		textAlign(LEFT)
+		text('Stamina', 10, height - 40,)
+
 	}
 
 	drawReticle() {
