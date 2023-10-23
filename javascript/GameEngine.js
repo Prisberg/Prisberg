@@ -43,6 +43,7 @@ class GameEngine {
     updatePlayerCharacter() {
         playerCharacter.drawReticle();
         playerCharacter.drawStaminaBar();
+        playerCharacter.drawManaBar();
         playerCharacter.display();
         playerCharacter.move();
         if (playerCharacter.hitScan()) {

@@ -11,10 +11,11 @@ function reset() {
 	targetEnemies = [];
 	playerPos.x = center.x;
 	playerPos.y = center.y;
+	mana = 0
+	score = 0;
 	targetTimer = 0;
 	entitySpawnMultiplier = 2;
 	entitySizeMultiplier = 2;
-	score = 0;
 }
 
 function mousePressed() {

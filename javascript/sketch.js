@@ -41,7 +41,6 @@ let center = {
 	x: undefined,
 	y: undefined
 };
-
 let images = {
 	player: undefined
 };
@@ -49,6 +48,7 @@ let animations = {
 	start: []
 };
 let font;
+let mana = 0;
 
 function preload() {
 	images.player = loadImage('../assets/images/player.png')

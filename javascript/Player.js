@@ -40,8 +40,14 @@ class Player {
 			}
 			this.speed = 2;
 		}
-		if (keyIsPressed && keyIsDown(32)) {
-			console.log('space');
+		if (keyIsDown(32) && mana >= 10) {
+			playerPos.x = mouseX;
+			playerPos.y = mouseY;
+			mana -= 10;
+		}
+		if (keyIsDown(82) && mana === 25) {
+			targetEnemies = [];
+			mana = 0;
 		}
 	}
 
@@ -56,7 +62,11 @@ class Player {
 		fill(215, 237, 250);
 		textAlign(LEFT)
 		text('Stamina', 10, height - 40,)
+	}
 
+	drawManaBar() {
+		textAlign(LEFT)
+		text(`Mana: ${mana}/25`, 10, height - 70,)
 	}
 
 	drawReticle() {

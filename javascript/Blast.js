@@ -4,6 +4,7 @@ class Blast {
 		this.y = playerPos.y;
 		this.xSpd = 12 * xSpd;
 		this.ySpd = 12 * ySpd;
+		// I need to store the previous positions of the blast and display increasingly smaller after images behind it.
 	}
 
 	display() {
@@ -30,6 +31,7 @@ class Blast {
 			let collideOrNot = collideCircleCircle(this.x, this.y, 10, targetEnemies[i].myX(), targetEnemies[i].myY(), targetEnemies[i].myR())
 			if (collideOrNot) {
 				targetEnemies.splice(i, 1);
+				if (mana < 25) mana++;
 				score += 1;
 				return true;
 			}
