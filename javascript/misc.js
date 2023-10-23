@@ -31,7 +31,10 @@ function mousePressed() {
 		oneBlast = new Blast(mouseVector.x, mouseVector.y);
 		blastsFired.push(oneBlast);
 	} else if (gameState === "pause") {
-
+		if (withinButtonXCoords)
+			if (mouseY <= center.y + 32 && mouseY >= center.y - 32) {
+				gameState = "playing";
+			}
 	} else if (gameState === "dead") {
 		if (withinButtonXCoords) {
 			if (mouseY <= center.y + 16 && mouseY >= center.y - 16) {

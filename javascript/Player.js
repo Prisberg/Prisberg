@@ -29,7 +29,7 @@ class Player {
 		}
 		if ((keyIsDown(16) || keyIsDown(SHIFT))) {
 			if (this.stamina > 0) {
-				this.speed = 4;
+				this.speed = 5;
 				this.stamina--;
 			} else {
 				this.speed = 2;
@@ -40,7 +40,11 @@ class Player {
 			}
 			this.speed = 2;
 		}
+		if (keyIsPressed && keyIsDown(32)) {
+			console.log('space');
+		}
 	}
+
 	drawStaminaBar() {
 		fill(6, 8, 11, 225);
 		rect(10, height - 30, 200, 16);

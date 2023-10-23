@@ -94,7 +94,8 @@ function draw() {
 		game = new GameEngine();
 		game.play();
 	} else if (gameState === "pause") {
-
+		game = new Pause();
+		game.menu();
 	} else if (gameState === "dead") {
 		game = new GameOver();
 		game.menu();
