@@ -1,6 +1,6 @@
 ![GoodMorningSnoopyGIF](https://github.com/Prisberg/Prisberg/assets/94374883/5b196d24-1400-4437-a0d2-9cbbaf84c895)
 
-# Hey!!
+# Hey!
 
 I'm a passionate 26-year-old Front-End Developer actively seeking new job opportunities in the exciting world of web development. With a solid foundation in HTML, CSS, and JavaScript, I'm all about creative projects and solutions.
 
