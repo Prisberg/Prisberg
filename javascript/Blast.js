@@ -26,6 +26,10 @@ class Blast {
 		return (this.x > width + 10 || this.x < -10 || this.y > height + 10 || this.y < -10);
 	}
 
+	stagnating() {
+		return (this.xSpd < 0.5 && this.ySpd < 0.5);
+	}
+
 	hitScan() {
 		for (let i = 0; i < targetEnemies.length; i++) {
 			let collideOrNot = collideCircleCircle(this.x, this.y, 10, targetEnemies[i].myX(), targetEnemies[i].myY(), targetEnemies[i].myR())

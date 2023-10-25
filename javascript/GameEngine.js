@@ -16,7 +16,7 @@ class GameEngine {
             const blast = blastsFired[i];
             blast.display();
             blast.update();
-            if (blast.outOfBounds() || blast.hitScan()) {
+            if (blast.outOfBounds() || blast.hitScan() || blast.stagnating()) {
                 blastsFired.splice(i, 1);
             }
         }
