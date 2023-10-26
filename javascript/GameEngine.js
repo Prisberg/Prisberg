@@ -7,7 +7,7 @@ class GameEngine {
         if (targetTimer % spawnInterval === 0) {
             const newEntity = new Entity();
             targetEnemies.push(newEntity);
-            score += 5;
+            score += 1;
         }
     }
 
@@ -16,7 +16,7 @@ class GameEngine {
             const blast = blastsFired[i];
             blast.display();
             blast.update();
-            if (blast.outOfBounds() || blast.hitScan() || blast.stagnating()) {
+            if (blast.outOfBounds() || blast.hitScan()) {
                 blastsFired.splice(i, 1);
             }
         }
@@ -44,6 +44,7 @@ class GameEngine {
         playerCharacter.drawReticle();
         playerCharacter.drawStaminaBar();
         playerCharacter.drawManaBar();
+        playerCharacter.drawScore();
         playerCharacter.display();
         playerCharacter.move();
         if (playerCharacter.hitScan()) {

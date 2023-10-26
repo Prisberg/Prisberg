@@ -46,6 +46,7 @@ class Player {
 			mana -= 10;
 		}
 		if (keyIsDown(82) && mana === 25) {
+			score += targetEnemies.length
 			targetEnemies = [];
 			mana = 0;
 		}
@@ -61,11 +62,13 @@ class Player {
 		noStroke();
 		fill(215, 237, 250);
 		textAlign(LEFT)
+		textSize(16);
 		text('Stamina', 10, height - 40,)
 	}
 
 	drawManaBar() {
 		textAlign(LEFT)
+		textSize(16);
 		text(`Mana: ${mana}/25`, 10, height - 70,)
 	}
 
@@ -79,6 +82,13 @@ class Player {
 		line(mouseX + 14, mouseY - 14, mouseX - 14, mouseY + 14);
 		stroke(80, 160, 200, 125);
 		line(playerPos.x, playerPos.y, mouseX, mouseY);
+	}
+
+	drawScore() {
+		textAlign(RIGHT);
+		textSize(32);
+		fill(215, 237, 250);
+		text(`Score: ${score}`, width - 16, 32);
 	}
 
 	hitScan() {

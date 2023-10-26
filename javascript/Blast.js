@@ -4,7 +4,7 @@ class Blast {
 		this.y = playerPos.y;
 		this.xSpd = 12 * xSpd;
 		this.ySpd = 12 * ySpd;
-		// I need to store the previous positions of the blast and display increasingly smaller after images behind it.
+		// I need to store the previous positions of the blast and display increasingly smaller after-images behind it.
 	}
 
 	display() {
@@ -24,10 +24,6 @@ class Blast {
 
 	outOfBounds() {
 		return (this.x > width + 10 || this.x < -10 || this.y > height + 10 || this.y < -10);
-	}
-
-	stagnating() {
-		return (this.xSpd < 0.5 && this.ySpd < 0.5);
 	}
 
 	hitScan() {
