@@ -4,14 +4,20 @@ class Blast {
 		this.y = playerPos.y;
 		this.xSpd = 12 * xSpd;
 		this.ySpd = 12 * ySpd;
-		// I need to store the previous positions of the blast and display increasingly smaller after-images behind it.
+		this.trail = [];
 	}
 
 	display() {
-		push()
-		stroke(230, 255, 0);
-		fill(230, 255, 0, 135);
-		ellipse(this.x, this.y, 10);
+		push();
+		fill(255);
+		ellipse(this.x, this.y, 11);
+
+		// Display the trail ellipses.
+		for (let i = 0; i < this.trail.length; i++) {
+			fill(156, 229, 249, (255 - (40 * (this.trail.length - i))));
+			ellipse(this.trail[i].x, this.trail[i].y, 10 - (this.trail.length - i));
+			console.log((10 * (this.trail.length - i)));
+		}
 		pop();
 	}
 
@@ -20,6 +26,14 @@ class Blast {
 		this.y += this.ySpd;
 		this.xSpd *= 0.994;
 		this.ySpd *= 0.994;
+
+		// Add the current position to the trail array.
+		this.trail.push({ x: this.x, y: this.y });
+
+		// Limit the length of the trail to avoid excessive memory usage.
+		if (this.trail.length > 5) {
+			this.trail.shift();
+		}
 	}
 
 	outOfBounds() {
