@@ -53,13 +53,14 @@ class Player {
 	}
 
 	drawStaminaBar() {
+		stroke(215, 237, 250);
 		fill(6, 8, 11, 225);
 		rect(10, height - 30, 200, 16);
 
+		noStroke();
 		fill(111, 0, 57);
 		rect(10, height - 30, this.stamina * 4, 16)
 
-		noStroke();
 		fill(215, 237, 250);
 		textAlign(LEFT)
 		textSize(16);
@@ -67,9 +68,18 @@ class Player {
 	}
 
 	drawManaBar() {
+		stroke(215, 237, 250);
+		fill(6, 8, 11, 225);
+		rect(10, height - 75, 200, 16);
+
+		noStroke();
+		fill(156, 229, 249);
+		rect(10, height - 75, mana * 8, 16)
+
+		fill(215, 237, 250);
 		textAlign(LEFT)
 		textSize(16);
-		text(`Mana: ${mana}/25`, 10, height - 70,)
+		text('Mana', 10, height - 85,)
 	}
 
 	drawReticle() {
