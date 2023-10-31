@@ -10,13 +10,12 @@ class Blast {
 	display() {
 		push();
 		fill(255);
-		ellipse(this.x, this.y, 11);
+		ellipse(this.x, this.y, 12);
 
 		// Display the trail ellipses.
 		for (let i = 0; i < this.trail.length; i++) {
 			fill(156, 229, 249, (255 - (40 * (this.trail.length - i))));
 			ellipse(this.trail[i].x, this.trail[i].y, 10 - (this.trail.length - i));
-			console.log((10 * (this.trail.length - i)));
 		}
 		pop();
 	}
@@ -31,7 +30,7 @@ class Blast {
 		this.trail.push({ x: this.x, y: this.y });
 
 		// Limit the length of the trail to avoid excessive memory usage.
-		if (this.trail.length > 5) {
+		if (this.trail.length > 10) {
 			this.trail.shift();
 		}
 	}

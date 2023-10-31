@@ -75,13 +75,14 @@ class Player {
 	drawReticle() {
 		noFill();
 		strokeWeight(1.5);
-		stroke(0, 100, 125, 125);
+		stroke(111, 0, 57);
 		ellipse(mouseX, mouseY, 20);
-		stroke(80, 160, 200, 125);
+		stroke(111, 0, 57);
 		line(mouseX - 14, mouseY - 14, mouseX + 14, mouseY + 14);
 		line(mouseX + 14, mouseY - 14, mouseX - 14, mouseY + 14);
-		stroke(80, 160, 200, 125);
+		stroke(111, 0, 57);
 		line(playerPos.x, playerPos.y, mouseX, mouseY);
+		noStroke();
 	}
 
 	drawScore() {
