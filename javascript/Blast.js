@@ -44,8 +44,6 @@ class Blast {
 			let collideOrNot = collideCircleCircle(this.x, this.y, 10, targetEnemies[i].myX(), targetEnemies[i].myY(), targetEnemies[i].myR())
 			if (collideOrNot) {
 				targetEnemies.splice(i, 1);
-				if (mana < 25) mana++;
-				score += 1;
 				return true;
 			}
 		}

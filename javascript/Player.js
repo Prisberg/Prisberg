@@ -2,6 +2,7 @@ class Player {
 	constructor() {
 		this.speed = 2;
 		this.stamina = 50;
+		this.mana = 0;
 	}
 
 	display() {
@@ -74,7 +75,7 @@ class Player {
 
 		noStroke();
 		fill(156, 229, 249);
-		rect(10, height - 75, mana * 8, 16)
+		rect(10, height - 75, this.mana * 8, 16)
 
 		fill(215, 237, 250);
 		textAlign(LEFT)
@@ -100,6 +101,11 @@ class Player {
 		textSize(32);
 		fill(215, 237, 250);
 		text(`Score: ${score}`, width - 16, 32);
+	}
+
+	updateMana(number) {
+		if (this.mana < 25)
+			this.mana += number;
 	}
 
 	hitScan() {

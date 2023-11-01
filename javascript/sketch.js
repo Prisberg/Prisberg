@@ -38,7 +38,7 @@ let playerPos = {
  * X and Y value for the center of the canvas/window
   */
 let center = {
-	x: undefined,
+	x: undefined, aaaaaa
 	y: undefined
 };
 let images = {
@@ -48,7 +48,6 @@ let animations = {
 	start: []
 };
 let font;
-let mana = 0;
 
 function preload() {
 	images.player = loadImage('../assets/images/player.png')
