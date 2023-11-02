@@ -24,7 +24,7 @@ let highScore = 0;
 /** 
  * A string that keeps track of the state of the game.
  * @string
- * States: start, playing, paus, dead.
+ * States: start, playing, pause, dead.
  */
 let gameState = 'start'
 /** 
@@ -38,14 +38,15 @@ let playerPos = {
  * X and Y value for the center of the canvas/window
   */
 let center = {
-	x: undefined, aaaaaa
+	x: undefined,
 	y: undefined
 };
 let images = {
 	player: undefined
 };
 let animations = {
-	start: []
+	start: [],
+	basicAttack: []
 };
 let font;
 
@@ -56,6 +57,8 @@ function preload() {
 	for (let i = 0; i < 15; i++) {
 		animations.start[i] = loadImage(`../assets/animatedMenuHero/pxArt (${i}).png`)
 	}
+	animations.basicAttack[0] = loadImage('../assets/basicAttack/1.png')
+	animations.basicAttack[1] = loadImage('../assets/basicAttack/2.png')
 }
 
 function setup() {

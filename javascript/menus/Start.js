@@ -10,7 +10,7 @@ class Start {
             this.heroImageX = center.x - (center.x * 0.7);
         }
         image(animations.start[this.heroAnimFrame], this.heroImageX, center.y / 2, center.y, center.y)
-
+ 
         stroke(111, 0, 57);
         strokeWeight(2)
         textAlign(CENTER);

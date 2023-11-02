@@ -11,7 +11,7 @@ function reset() {
 	targetEnemies = [];
 	playerPos.x = center.x;
 	playerPos.y = center.y;
-	mana = 0
+	playerCharacter.updateMana(0)
 	score = 0;
 	targetTimer = 0;
 	entitySpawnMultiplier = 2;
@@ -28,6 +28,7 @@ function mousePressed() {
 				gameState = "playing";
 			}
 	} else if (gameState === "playing") {
+		playerCharacter.playerAnimation(animations.basicAttack);
 		let mouseVector = getMouseVector();
 		oneBlast = new Blast(mouseVector.x, mouseVector.y);
 		blastsFired.push(oneBlast);

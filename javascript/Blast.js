@@ -1,9 +1,9 @@
 class Blast {
-	constructor(xSpd, ySpd) {
+	constructor(mouseVectorX, mouseVectorY) {
 		this.x = playerPos.x;
 		this.y = playerPos.y;
-		this.xSpd = 12 * xSpd;
-		this.ySpd = 12 * ySpd;
+		this.mouseVectorX = 12 * mouseVectorX;
+		this.mouseVectorY = 12 * mouseVectorY;
 		this.trail = [];
 	}
 
@@ -21,10 +21,10 @@ class Blast {
 	}
 
 	update() {
-		this.x += this.xSpd;
-		this.y += this.ySpd;
-		this.xSpd *= 0.994;
-		this.ySpd *= 0.994;
+		this.x += this.mouseVectorX;
+		this.y += this.mouseVectorY;
+		this.mouseVectorX *= 0.994;
+		this.mouseVectorY *= 0.994;
 
 		// Add the current position to the trail array.
 		this.trail.push({ x: this.x, y: this.y });

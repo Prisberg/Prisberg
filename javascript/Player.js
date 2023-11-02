@@ -3,15 +3,29 @@ class Player {
 		this.speed = 2;
 		this.stamina = 50;
 		this.mana = 0;
+		this.animationFrame = animations.basicAttack;
+		this.idle = true;
+		this.animationIndex = 0;
 	}
 
 	display() {
 		push();
-		angleMode(DEGREES); // Change the mode to DEGREES
+		angleMode(DEGREES);
 		let a = atan2(mouseY - playerPos.y, mouseX - playerPos.x);
 		translate(playerPos.x, playerPos.y)
 		rotate(a);
-		image(images.player, -30, -39 / 2, 60, 39)
+
+		if (!this.idle && frameCount % 5 === 0) {
+			if (this.animationIndex < this.animationFrame.length - 1) {
+				this.animationIndex++;
+			} else {
+				this.animationIndex = 0;
+				this.idle = true;
+				this.animationFrame = animations.basicAttack;
+			}
+		}
+
+		image(this.animationFrame[this.animationIndex], -30, -39 / 2, 60, 39)
 		pop();
 	}
 
@@ -41,15 +55,17 @@ class Player {
 			}
 			this.speed = 2;
 		}
-		if (keyIsDown(32) && mana >= 10) {
+		if (keyIsDown(32) && this.mana >= 10) {
 			playerPos.x = mouseX;
 			playerPos.y = mouseY;
-			mana -= 10;
+			this.mana -= 10;
+			fill(111, 0, 57);
+			rect(center.x, center.y, width, height);
 		}
-		if (keyIsDown(82) && mana === 25) {
+		if (keyIsDown(82) && this.mana === 25) {
 			score += targetEnemies.length
 			targetEnemies = [];
-			mana = 0;
+			this.mana = 0;
 		}
 	}
 
@@ -104,8 +120,17 @@ class Player {
 	}
 
 	updateMana(number) {
-		if (this.mana < 25)
-			this.mana += number;
+		if (number > 0) {
+			if (this.mana < 25)
+				this.mana += number;
+		} else {
+			this.mana = number;
+		}
+	}
+
+	playerAnimation(animation) {
+		this.animationFrame = animation;
+		this.idle = false;
 	}
 
 	hitScan() {
