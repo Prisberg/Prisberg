@@ -65,3 +65,15 @@ function keyPressed() {
 		}
 	}
 }
+
+function drawHints() {
+	textAlign(RIGHT);
+	textSize(16);
+	fill(215, 237, 250);
+	text("Move using the arrow, or W A S D, keys.", width - 32, center.y / 2 + 32);
+	text("Press R for an ultimate attack.", width - 32, center.y / 2 + 48);
+	text("Press Spacebar to blink.", width - 32, center.y / 2 + 64);
+	text("Use shift to dash.", width - 32, center.y / 2 + 80);
+	text("Esc to pause.", width - 32, center.y / 2 + 96);
+	text("Click to fire.", width - 32, center.y / 2 + 112);
+}

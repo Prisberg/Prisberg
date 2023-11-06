@@ -44,6 +44,8 @@ class GameOver {
         fill(215, 237, 250)
         // subtract 2 from center.y + (number) cause it's more center aligned even tho it's not mathematically center.
         text('Back to Start', center.x, center.y + 54)
+
+        drawHints();
     }
 
 }
