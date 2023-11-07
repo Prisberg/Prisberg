@@ -3,7 +3,7 @@ class Player {
 		this.speed = 2;
 		this.stamina = 50;
 		this.mana = 0;
-		this.animationFrame = animations.basicAttack;
+		this.animationFrame = animations.idle;
 		this.idle = true;
 		this.animationIndex = 0;
 	}
@@ -19,9 +19,9 @@ class Player {
 			if (this.animationIndex < this.animationFrame.length - 1) {
 				this.animationIndex++;
 			} else {
-				this.animationIndex = 0;
+				this.animationIndex = frameCount % 3;
 				this.idle = true;
-				this.animationFrame = animations.basicAttack;
+				this.animationFrame = animations.idle;
 			}
 		}
 
@@ -129,6 +129,7 @@ class Player {
 	}
 
 	playerAnimation(animation) {
+		this.animationIndex = 0;
 		this.animationFrame = animation;
 		this.idle = false;
 	}

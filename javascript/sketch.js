@@ -46,6 +46,7 @@ let images = {
 };
 let animations = {
 	start: [],
+	idle: [],
 	basicAttack: []
 };
 let font;
@@ -54,11 +55,9 @@ function preload() {
 	images.player = loadImage('../assets/images/player.png')
 	font = loadFont('../assets/fonts/GrenzeGotisch.ttf')
 
-	for (let i = 0; i < 15; i++) {
-		animations.start[i] = loadImage(`../assets/animatedMenuHero/pxArt (${i}).png`)
-	}
-	animations.basicAttack[0] = loadImage('../assets/basicAttack/1.png')
-	animations.basicAttack[1] = loadImage('../assets/basicAttack/2.png')
+	loadAnimationLoop(15, animations.start, 'animatedMenuHero')
+	loadAnimationLoop(3, animations.idle, 'idle')
+	loadAnimationLoop(2, animations.basicAttack, 'basicAttack')
 }
 
 function setup() {

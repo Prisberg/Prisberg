@@ -77,3 +77,14 @@ function drawHints() {
 	text("Esc to pause.", width - 32, center.y / 2 + 96);
 	text("Click to fire.", width - 32, center.y / 2 + 112);
 }
+
+/** 
+ * nrOfFrames is the number of png's in the folder.
+ * animationArr is the array to assign the png's to.
+ * asset is a string indicating the directory of the png's.
+  */
+function loadAnimationLoop(nrOfFrames, animationArr, asset) {
+	for (let i = 0; i < nrOfFrames; i++) {
+		animationArr[i] = loadImage(`../assets/${asset}/${i}.png`)
+	}
+}
