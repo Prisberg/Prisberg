@@ -66,14 +66,19 @@ class Player {
 			playerPos.x = mouseX;
 			playerPos.y = mouseY;
 			this.mana -= 10;
-			fill(111, 0, 57);
-			rect(0, 0, width, height);
+			stroke(156, 229, 249);
+			ellipse(playerPos.x, playerPos.y, 100);
+			noStroke();
 		}
-		if (keyIsDown(82) && this.mana >= 25) {
+		if (keyIsDown(82)) {
 			this.playerAnimation(animations.ultimate)
-			score += targetEnemies.length
-			targetEnemies = [];
 			this.mana = 0;
+			setTimeout(() => {
+				fill(156, 229, 249);
+				ellipse(playerPos.x, playerPos.y, height);
+				score += targetEnemies.length
+				targetEnemies = [];
+			}, 500);
 		}
 	}
 
