@@ -3,7 +3,7 @@ class Player {
 		this.speed = 2;
 		this.stamina = 50;
 		this.mana = 0;
-		this.animationFrame = animations.idle;
+		this.animation = animations.idle;
 		this.idle = true;
 		this.animationIndex = 0;
 	}
@@ -15,17 +15,24 @@ class Player {
 		translate(playerPos.x, playerPos.y)
 		rotate(a);
 
-		if (!this.idle && frameCount % 5 === 0) {
-			if (this.animationIndex < this.animationFrame.length - 1) {
+		if (!this.idle && frameCount % 12 === 0) {
+			if (this.animationIndex < this.animation.length - 1) {
 				this.animationIndex++;
 			} else {
-				this.animationIndex = frameCount % 3;
 				this.idle = true;
-				this.animationFrame = animations.idle;
+				this.animationIndex = 0;
+				this.animation = animations.idle;
+			}
+		} else if (this.idle && frameCount % 12 === 0) {
+			if (this.animationIndex < this.animation.length - 1) {
+				this.animationIndex++;
+			} else {
+				this.animationIndex = 0;
 			}
 		}
 
-		image(this.animationFrame[this.animationIndex], -30, -39 / 2, 60, 39)
+		console.log(this.animation[this.animationIndex], this.animationIndex);
+		image(this.animation[this.animationIndex], -30, -39 / 2, 60, 39)
 		pop();
 	}
 
@@ -60,9 +67,10 @@ class Player {
 			playerPos.y = mouseY;
 			this.mana -= 10;
 			fill(111, 0, 57);
-			rect(center.x, center.y, width, height);
+			rect(0, 0, width, height);
 		}
-		if (keyIsDown(82) && this.mana === 25) {
+		if (keyIsDown(82) && this.mana >= 25) {
+			this.playerAnimation(animations.ultimate)
 			score += targetEnemies.length
 			targetEnemies = [];
 			this.mana = 0;
@@ -130,7 +138,7 @@ class Player {
 
 	playerAnimation(animation) {
 		this.animationIndex = 0;
-		this.animationFrame = animation;
+		this.animation = animation;
 		this.idle = false;
 	}
 

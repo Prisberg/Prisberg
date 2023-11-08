@@ -47,7 +47,8 @@ let images = {
 let animations = {
 	start: [],
 	idle: [],
-	basicAttack: []
+	basicAttack: [],
+	ultimate: []
 };
 let font;
 
@@ -58,6 +59,7 @@ function preload() {
 	loadAnimationLoop(15, animations.start, 'animatedMenuHero')
 	loadAnimationLoop(3, animations.idle, 'idle')
 	loadAnimationLoop(2, animations.basicAttack, 'basicAttack')
+	loadAnimationLoop(4, animations.ultimate, 'ultimate')
 }
 
 function setup() {
