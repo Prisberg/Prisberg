@@ -1,7 +1,9 @@
 class Entity {
 	constructor() {
 		this.side = int(random(4));
-		this.homing = random(1) < 0.1; // 10% chance of homing
+		this.homing = random(1) < 0.1;
+		this.animationIndex = 0;
+		this.animation = animations.basicEnemy;
 
 		if (this.side === 0) {
 			this.x = 0;
@@ -24,7 +26,16 @@ class Entity {
 	display() {
 		push();
 		noStroke();
-		fill(this.homing ? color(255, 0, 0) : color(111, 12, 0));
+		// fill(this.homing ? color(255, 0, 0) : color(111, 12, 0));
+		if (frameCount % 12 === 0) {
+			if (this.animationIndex < this.animation.length - 1) {
+				this.animationIndex++
+			} else {
+				this.animationIndex = 0;
+			}
+		}
+		image(this.animation[this.animationIndex], this.x, this.y, this.r, this.r)
+		fill(255)
 		ellipse(this.x, this.y, this.r);
 		pop();
 	}

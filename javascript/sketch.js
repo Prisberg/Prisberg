@@ -42,24 +42,27 @@ let center = {
 	y: undefined
 };
 let images = {
-	player: undefined
+	battlemap: undefined
 };
 let animations = {
 	start: [],
 	idle: [],
 	basicAttack: [],
-	ultimate: []
+	ultimate: [],
+	basicEnemy: []
 };
 let font;
 
+
 function preload() {
-	images.player = loadImage('../assets/images/player.png')
+	images.battlemap = loadImage('../assets/battlemap/floorTexture1.jpg')
 	font = loadFont('../assets/fonts/GrenzeGotisch.ttf')
 
 	loadAnimationLoop(15, animations.start, 'animatedMenuHero')
 	loadAnimationLoop(3, animations.idle, 'idle')
 	loadAnimationLoop(2, animations.basicAttack, 'basicAttack')
 	loadAnimationLoop(4, animations.ultimate, 'ultimate')
+	loadAnimationLoop(2, animations.basicEnemy, 'enemies/basic')
 }
 
 function setup() {
@@ -75,6 +78,7 @@ function setup() {
 	playerPos.y = center.y;
 	playerCharacter = new Player();
 	angleMode();
+
 }
 
 function windowResized() {
@@ -87,6 +91,25 @@ function windowResized() {
 
 function draw() {
 	background(13, 17, 23);
+
+	// Background image
+	if (width > height) {
+		for (let x = 0; x < width; x += height) {
+			for (let y = 0; y < height; y += height) {
+				image(images.battlemap, x, y, height, height);
+			}
+		}
+	} else {
+		for (let x = 0; x < width; x += width) {
+			for (let y = 0; y < height; y += width) {
+				image(images.battlemap, x, y, width, width);
+			}
+		}
+
+	}
+
+
+
 	let game;
 	if (gameState === "start") {
 		frameRate(6);

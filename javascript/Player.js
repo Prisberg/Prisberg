@@ -31,7 +31,6 @@ class Player {
 			}
 		}
 
-		console.log(this.animation[this.animationIndex], this.animationIndex);
 		image(this.animation[this.animationIndex], -30, -39 / 2, 60, 39)
 		pop();
 	}
@@ -70,7 +69,7 @@ class Player {
 			ellipse(playerPos.x, playerPos.y, 100);
 			noStroke();
 		}
-		if (keyIsDown(82)) {
+		if (keyIsDown(82) && this.mana >= 25) {
 			this.playerAnimation(animations.ultimate)
 			this.mana = 0;
 			setTimeout(() => {
