@@ -85,6 +85,6 @@ function drawHints() {
   */
 function loadAnimationLoop(nrOfFrames, animationArr, asset) {
 	for (let i = 0; i < nrOfFrames; i++) {
-		animationArr[i] = loadImage(`../assets/${asset}/${i}.png`)
+		animationArr[i] = loadImage(`./assets/${asset}/${i}.png`)
 	}
 }
