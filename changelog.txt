@@ -1,0 +1,13 @@
+credits:
+
+- Base game mechanics by Carrefinho⭐
+---- https://editor.p5js.org/carrefinho/sketches/Sk7ZvoMn7
+
+- p5.collide2d by Ben Moren
+---- https://github.com/bmoren/p5.collide2D
+
+- p5.collide2d by Ben Moren
+---- https://github.com/bmoren/p5.collide2D
+
+- js-cookie
+---- https://github.com/js-cookie/js-cookie
