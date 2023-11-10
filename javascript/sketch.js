@@ -55,8 +55,8 @@ let font;
 
 
 function preload() {
-	images.battlemap = loadImage('../assets/battlemap/floorTexture1.jpg')
-	font = loadFont('../assets/fonts/GrenzeGotisch.ttf')
+	images.battlemap = loadImage('./assets/battlemap/floorTexture1.jpg')
+	font = loadFont('./assets/fonts/GrenzeGotisch.ttf')
 
 	loadAnimationLoop(15, animations.start, 'animatedMenuHero')
 	loadAnimationLoop(3, animations.idle, 'idle')
