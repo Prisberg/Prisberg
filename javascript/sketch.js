@@ -90,8 +90,9 @@ function windowResized() {
 }
 
 function draw() {
-	background(13, 17, 23);
+	const canvas = document.getElementsByTagName('canvas')[0]
 
+	background(13, 17, 23);
 	// Background image
 	if (width > height) {
 		for (let x = 0; x < width; x += height) {
@@ -108,21 +109,23 @@ function draw() {
 
 	}
 
-
-
 	let game;
 	if (gameState === "start") {
 		frameRate(6);
+		canvas.classList.remove('noCursor')
 		game = new Start();
 		game.menu();
 	} else if (gameState === "playing") {
+		canvas.classList.add('noCursor')
 		frameRate(60);
 		game = new GameEngine();
 		game.play();
 	} else if (gameState === "pause") {
+		canvas.classList.remove('noCursor')
 		game = new Pause();
 		game.menu();
 	} else if (gameState === "dead") {
+		canvas.classList.remove('noCursor')
 		game = new GameOver();
 		game.menu();
 	}

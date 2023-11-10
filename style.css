@@ -9,6 +9,10 @@ canvas {
   display: block;
 }
 
+.noCursor {
+  cursor: none;
+}
+
 button {
   user-select: none;
 }

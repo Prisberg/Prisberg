@@ -88,10 +88,3 @@ function loadAnimationLoop(nrOfFrames, animationArr, asset) {
 		animationArr[i] = loadImage(`../assets/${asset}/${i}.png`)
 	}
 }
-
-function battleMap() {
-	// windowWidth, windowHeight
-
-	// console.log(((width * height) / 200) / 200);
-
-}

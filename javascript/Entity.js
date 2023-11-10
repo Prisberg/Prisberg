@@ -26,17 +26,20 @@ class Entity {
 	display() {
 		push();
 		noStroke();
-		// fill(this.homing ? color(255, 0, 0) : color(111, 12, 0));
 		if (frameCount % 12 === 0) {
 			if (this.animationIndex < this.animation.length - 1) {
-				this.animationIndex++
+				this.animationIndex++;
 			} else {
 				this.animationIndex = 0;
 			}
 		}
-		image(this.animation[this.animationIndex], this.x, this.y, this.r, this.r)
-		fill(255)
-		ellipse(this.x, this.y, this.r);
+
+		angleMode(DEGREES);
+		let a = atan2(this.ySpd, this.xSpd);
+		translate(this.x, this.y);
+		rotate(a);
+
+		image(this.animation[this.animationIndex], -this.r / 2, -this.r / 2, this.r, this.r); // Adjust image positioning
 		pop();
 	}
 
