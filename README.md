@@ -1,4 +1,4 @@
-![Web of Spells](/assets/profile.svg)
+![Web of Spells](https://i.ibb.co/6HB2fTy/we-All-Want-To-Be-Heroes.gif)
 
 Am I the type of guy who builds a lil game and makes himself the main character? Yes, yes I am.
 
