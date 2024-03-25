@@ -6,4 +6,4 @@
 
 📫 You can reach out to me through my [website](https://prisberg.dev/contact) or connect with me on [LinkedIn](https://www.linkedin.com/in/philip-risberg). I'm always open to networking and exploring potential opportunities.
 
-Let's connect and create amazing web experiences together! 
+Let's connect and create amazing web experiences together! 🚀
