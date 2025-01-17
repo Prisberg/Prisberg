@@ -1,9 +1,26 @@
-![Web of Spells](https://github.com/Prisberg/Prisberg/blob/main/assets/weAllWantToBeHeroes.gif)
+<h1 align="center">Philip</h1>
+<p align="center"><strong>Aspiring Frontend Developer | IT Enthusiast</strong></p>
 
-<a alt="Web of Spells" href="https://prisberg.github.io/Prisberg/" target="_blank">Am I the type of guy who builds a quick lil game and makes himself the main character? Yes, yes I am.</a>
+---
 
-## More about me:
+<h2>About Me</h2>
+<p>
+I have a background in front-end development, combined with hands-on experience managing IT hardware and networks. After completing my military service, I am eager to return to coding and deepen my expertise in web technologies.
+</p>
 
-📫 You can reach out to me through my [website](https://prisberg.dev/contact) or connect with me on [LinkedIn](https://www.linkedin.com/in/philip-risberg). I'm always open to networking and exploring potential opportunities.
+<h2>Skills</h2>
+<ul>
+  <li>Frontend: HTML, CSS, JavaScript, React</li>
+  <li>Backend: Node.js (basic), REST APIs</li>
+  <li>IT: Network troubleshooting, hardware maintenance</li>
+</ul>
 
-Let's connect and create amazing web experiences together! 
+<h2>Current Goals</h2>
+<p>
+I am currently working on a new project to showcase my skills in both frontend and backend development. My aim is to build dynamic, user-focused web applications while exploring modern technologies like Next.js and cloud computing.
+</p>
+
+<h2>Contact</h2>
+<p>
+Feel free to connect with me on <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a> or check out my projects below!
+</p>
