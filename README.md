@@ -5,7 +5,7 @@
 
 <h2>About Me</h2>
 <p>
-I have a background in front-end development, combined with hands-on experience managing IT hardware and networks. After completing my IT-focused military service, I am eager to return to coding and deepen my expertise in web technologies.
+I have a background in front-end development, combined with hands-on experience managing IT hardware and networks. On completing my IT-focused military service, I am eager to return to coding and deep into the fog of creative programming.
 </p>
 
 <h2>Skills</h2>
