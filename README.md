@@ -22,5 +22,5 @@ I am currently working on a new project to showcase my skills in both frontend a
 
 <h2>Contact</h2>
 <p>
-Feel free to connect with me on <a href="www.linkedin.com/in/philip-risberg" target="_blank">LinkedIn</a> or check out my projects below!
+Feel free to connect with me on <a href="www.linkedin.com/in/philip-risberg" target="_blank">LinkedIn</a>!
 </p>
